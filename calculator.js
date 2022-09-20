@@ -19,11 +19,37 @@
         // - can SQUARE ROOT
         // - can handle 3 or more numbers inputted
 
-const firstNumber = prompt("First number: ");
-const operator = prompt("Operator: ");
-const secondNumber = prompt("Second number: ");
+let firstNumber = Number(prompt("First number: "));
+let operator = prompt("Operator: ");
+let secondNumber = Number(prompt("Second number: "));
 
-alert(`${firstNumber} ${operator} ${secondNumber}`);
-// const calculateNow = (firstNumber, secondNumber, operator) => {
-//     alert(`${firstNumber} ${operator} ${secondNumber}`);
-// }
+// alert(`${firstNumber} ${operator} ${secondNumber}`);
+
+// alert(`${firstNumber} is ${typeof firstNumber}`);
+// alert(`${secondNumber} is ${typeof secondNumber}`);
+// alert(`${operator} is ${typeof operator}`);
+// // alert(`length of operator ${operator.length}`);
+
+const calculateNow = (first, second, operation) => {
+    console.log(operation);
+    switch (operation) {
+        case "+":
+            return (first + second);
+        case "-":
+            return (first - second);
+        case "/":
+            return (second === 0) ? "Error: Division by 0 not permitted": (first / second) ;
+        case "*":
+            return (first * second);
+        case "%":
+            return (first*(second/100));
+        case "√":
+            if (second > 0 && second < 6) {
+                return Math.pow(first, 1/second).toFixed(2);
+            } else {
+                return "Error: power can only be between 1 and 5 for now!";
+            }         
+    }
+}
+let calcResults = calculateNow(firstNumber,secondNumber,operator)
+alert(`The results of ${firstNumber} ${operator} ${secondNumber} are ${calcResults}`);
