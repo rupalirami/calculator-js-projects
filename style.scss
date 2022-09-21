@@ -1,0 +1,150 @@
+$fontFamily: sans-serif, Arial, Helvetica;
+$backgroundColor: whitesmoke;
+$calculatorBackgroundColor: black;
+$fontColor: lightgrey;
+$fontColorAlternate: black;
+$buttonLightGrey: #8b8c89;
+$buttonGrey: #393938;
+// $buttonYellow: #ff9b54;
+$buttonYellow: #ee964b;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif, Arial, Helvetica;
+    // background-color: $backgroundColor;
+    // color: $fontColor;
+}
+h1 {
+    color: $fontColorAlternate;
+}
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    background-color: $calculatorBackgroundColor;
+    color: $fontColor;
+    font-size: 75px;
+    margin: 10px 0px 10px 0px;
+
+    &__results {
+        margin: 0px 0px 0px 190px;
+        justify-self: flex-end;
+    }
+
+    &__inputs {
+        display: grid;
+        gap: 20px;
+        justify-content: center;
+        background-color: $calculatorBackgroundColor;
+        font-size: 75px;
+        margin: 30px 10px 10px 10px;
+        padding: 5px;
+    
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        // grid-template-areas: 
+        // cancel changesign percentage division
+        // seven eight nine multiplication
+        // four five six substraction
+        // one two three addition
+        // zerodigit zerodigit decimaldigit calculate;
+    }
+    .button {
+        border: 1px solid $fontColorAlternate;
+        // padding: 10px;
+        // margin: 10px 10px 10px 10px;
+        // font-size: 40px;
+        justify-content: center;
+    }
+    .button-lt-grey {
+        border: 1px solid $fontColorAlternate;
+        background-color: $buttonLightGrey;
+        color: $fontColorAlternate;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 10px 10px 10px 10px;
+        font-size: 40px;
+    }
+    .button-grey {
+        border: 1px solid $fontColorAlternate;
+        background-color: $buttonGrey;
+        color: $fontColor;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 10px 10px 10px 10px;
+        font-size: 40px;
+    }
+    .button-yellow {
+        border: 1px solid $fontColorAlternate;
+        background-color: $buttonYellow;
+        color: $fontColor;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 10px 10px 10px 10px;
+        font-size: 40px;
+    }
+    .number-0 {
+        border: 1px solid lightcoral;
+        // width: 150px;
+        // grid-area: zerodigit;
+        border-radius: 35px/30px;
+    }
+    // .number-1 {
+    //     grid-area: one;
+    // }
+    // .number-2 {
+    //     grid-area: two;
+    // }
+    // .number-3 {
+    //     grid-area: three;
+    // }
+    // .number-4 {
+    //     grid-area: four;
+    // }
+    // .number-5 {
+    //     grid-area: five;
+    // }
+    // .number-6 {
+    //     grid-area: six;
+    // }
+    // .number-7 {
+    //     grid-area: seven;
+    // }
+    // .number-8 {
+    //     grid-area: eight;
+    // }
+    // .number-9 {
+    //     grid-area: nine;
+    // }
+    // .operator-cancel {
+    //     grid-area: cancel;
+    // }
+    // .operator-changesign {
+    //     grid-area: changesign;
+    // }
+    // .operator-percentage {
+    //     grid-area: percentage;
+    // }
+    // .operator-divide {
+    //     grid-area: division;
+    // }
+    // .operator-multiply {
+    //     grid-area: multiplication;
+    // }
+    // .operator-substract {
+    //     grid-area: substraction;
+    // }
+    // .operator-add {
+    //     grid-area: addition;
+    // }
+    // .operator-decimal {
+    //     grid-area: decimaldigit;
+    // }
+    // .operator-calculate {
+    //     grid-area: calculate;
+    // }
+}
