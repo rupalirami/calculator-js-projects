@@ -26,7 +26,7 @@ $buttonBlue: #457b9d;
     width: 300px;
     height: 50%;
     padding: 30px;
-    margin: 50px 0px 10px 0px;
+    margin: 50px 50px 50px 50px;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -82,9 +82,12 @@ $buttonBlue: #457b9d;
         margin: 5px 5px 5px 5px;
         box-shadow: 5px 5px $shadowColor;
     } // button end
-    .button:active {
-        box-shadow: 2px 2px $shadowColor;;
-    }
+    .button:active { // .button:active start
+        box-shadow: 2px 2px $shadowColor;
+    } // .button:active end
+    .button:click { // .button:click start
+        background-color: red;
+    } // .button:click end
     .button-lt-grey { // button-lt-grey start 
         background-color: $buttonLightGrey;
         color: $regularFontColor;
