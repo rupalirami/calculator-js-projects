@@ -19,9 +19,9 @@
         // - can SQUARE ROOT
         // - can handle 3 or more numbers inputted
 
-let firstNumber = Number(prompt("First number: "));
-let operator = prompt("Operator: ");
-let secondNumber = Number(prompt("Second number: "));
+// let firstNumber = Number(prompt("First number: "));
+// let operator = prompt("Operator: ");
+// let secondNumber = Number(prompt("Second number: "));
 
 // alert(`${firstNumber} ${operator} ${secondNumber}`);
 
@@ -32,12 +32,21 @@ let secondNumber = Number(prompt("Second number: "));
 
 const calculateNow = (first, second, operation) => {
     console.log(operation);
+    let errorMsg = "";
     switch (operation) {
         case "+":
             return (first + second);
         case "-":
             return (first - second);
         case "/":
+            // if (second === 0) {
+            //     errorMsg = "Error: Division by 0 not permitted"
+            //     // clear secondNumberInput string variable and refresh display input
+            //     return;
+            // } else {
+            //     return first/second;
+            // }
+            // // remove ternary command to ensure errorMsg can be captured
             return (second === 0) ? "Error: Division by 0 not permitted": (first / second) ;
         case "*":
             return (first * second);
@@ -52,4 +61,4 @@ const calculateNow = (first, second, operation) => {
     }
 }
 let calcResults = calculateNow(firstNumber,secondNumber,operator)
-alert(`The results of ${firstNumber} ${operator} ${secondNumber} are ${calcResults}`);
+// alert(`The results of ${firstNumber} ${operator} ${secondNumber} are ${calcResults}`);
