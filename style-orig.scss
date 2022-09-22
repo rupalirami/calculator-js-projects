@@ -34,7 +34,7 @@ $buttonYellow: #ee964b;
     margin: 50px 0px 10px 0px;
 
     &__results { // &__results start
-        border: 2px solid lawngreen;
+        // border: 2px solid lawngreen;
         position: relative;
         left: 150px;
         margin: 50px 0px 0px 20px;
@@ -42,7 +42,7 @@ $buttonYellow: #ee964b;
     } // &__results end
 
     &__inputs { // &__inputs start
-        border: 2px solid red;
+        // border: 2px solid red;
         display: grid;
         gap: 20px;
         justify-content: center;
@@ -166,7 +166,7 @@ $buttonYellow: #ee964b;
     // }
 
     &__footer { // &__footer start
-        border: 2px solid lightseagreen;
+        // border: 2px solid lightseagreen;
         padding: 10px;
         margin-bottom: 30px;
     } // &__footer end

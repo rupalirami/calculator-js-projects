@@ -32,21 +32,30 @@ $buttonBlue: #457b9d;
     justify-items: center;
 
     &__results { // &__results start
+        // border: 1px solid red;
         background-color: $backgroundColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-end;
         padding: 10px;
        .input-display { // .input-display start
-            justify-content: center;
+            justify-content: end;
+            align-items: center;
             color: $inputsFontColor;
+            font-size: 20px;
         } // .input-display end
         .results-display { // .results-display start
-            justify-content: center;
+            justify-content: end;
+            align-items: center;
             color: $resultsFontColor;
+            font-size: 35px;
         } // .results-display end
     } // &__results end
 
     &__inputs { // &__inputs start
         background-color: $backgroundColor;
-        height: 350px;
+        height: 360px;
         margin: 10px 0px 10px 0px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -61,6 +70,9 @@ $buttonBlue: #457b9d;
     } // &__inputs end
 
     .button { // button start 
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: 1px solid $calculatorBackgroundColor;
         border-radius: 5px;
         width: 50px;
