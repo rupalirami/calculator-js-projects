@@ -1,115 +1,95 @@
 $fontFamily: sans-serif, Arial, Helvetica;
 $backgroundColor: whitesmoke;
-$calculatorBackgroundColor: black;
-$fontColor: lightgrey;
-$fontColorAlternate: black;
-$buttonLightGrey: #8b8c89;
-$buttonGrey: #393938;
-// $buttonYellow: #ff9b54;
-$buttonYellow: #ee964b;
+$calculatorBackgroundColor: #dee2e6;
+$displayBackgroundColor: #adb5bd;
+$shadowColor: #6c757d;
+$regularFontColor: #212529;
+$resultsFontColor: #457b9d;
+$inputsFontColor: #6c757d;
+$buttonLightGrey: #e9ecef;
+$buttonBlue: #457b9d;
 
 * { // * start
     margin: 0;
-    padding-left: 50px;
-    padding-top: 20px;
+    padding: 0;
     font-family: sans-serif, Arial, Helvetica;
-    // background-color: $backgroundColor;
-    // color: $fontColor;
+    background-color: $backgroundColor;
+    color: $regularFontColor;
+    font-size: 30px;
+    border-radius: 10px;
 } // * end
-// h1 {
-//     color: $fontColorAlternate;
-// }
+
 .calculator { //calculator start
-    // border: 5px solid red;
-    display: flex;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: $calculatorBackgroundColor;
+    width: 300px;
+    height: 50%;
     padding: 30px;
-    flex-direction: column;
+    margin: 50px 0px 10px 0px;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 92%;
-    background-color: $calculatorBackgroundColor;
-    color: $fontColor;
-    font-size: 75px;
-    margin: 50px 0px 10px 0px;
+    justify-items: center;
 
     &__results { // &__results start
-        border: 2px solid lawngreen;
-        position: relative;
-        left: 150px;
-        margin: 50px 0px 0px 20px;
-        justify-self: flex-end;
+        background-color: $backgroundColor;
+        padding: 10px;
+       .input-display { // .input-display start
+            justify-content: center;
+            color: $inputsFontColor;
+        } // .input-display end
+        .results-display { // .results-display start
+            justify-content: center;
+            color: $resultsFontColor;
+        } // .results-display end
     } // &__results end
 
     &__inputs { // &__inputs start
-        border: 2px solid red;
+        background-color: $backgroundColor;
+        height: 350px;
+        margin: 10px 0px 10px 0px;
         display: grid;
-        gap: 20px;
-        justify-content: center;
-        align-content: space-between;
-        background-color: $calculatorBackgroundColor;
-        font-size: 75px;
-        margin: 30px 10px 10px 10px;
-        padding: 5px;
-    
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 20px;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         // grid-template-areas: 
-        // cancel changesign percentage division
-        // seven eight nine multiplication
-        // four five six substraction
-        // one two three addition
-        // zerodigit zerodigit decimaldigit calculate;
+        // "cancel" "changesign" "percentage" "divide"
+        // "seven" "eight" "nine" "multiply"
+        // "four" "five" "six" "substract"
+        // "one" "two" "three" "plus"
+        // "zero" "decimal" "backspace" "root"
+        // "calculate" "calculate" "calculate" "calculate";
     } // &__inputs end
 
     .button { // button start 
-        border: 1px solid $fontColorAlternate;
-        // padding: 10px;
-        // margin: 10px 10px 10px 10px;
-        // font-size: 40px;
+        border: 1px solid $calculatorBackgroundColor;
+        border-radius: 5px;
+        width: 50px;
         justify-content: center;
+        align-items: center;
+        margin: 5px 5px 5px 5px;
+        box-shadow: 5px 5px $shadowColor;
     } // button end
 
     .button-lt-grey { // button-lt-grey start 
-        border: 1px solid $fontColorAlternate;
         background-color: $buttonLightGrey;
-        color: $fontColorAlternate;
-        border-radius: 50%;
-        padding: 10px;
-        margin: 10px 10px 10px 10px;
-        font-size: 40px;
+        color: $regularFontColor;
     } // button-lt-end end
 
-    .button-grey { // button-grey start 
-        border: 1px solid $fontColorAlternate;
-        background-color: $buttonGrey;
-        color: $fontColor;
-        border-radius: 50%;
-        padding: 10px;
-        margin: 10px 10px 10px 10px;
-        font-size: 40px;
-    } // button-grey end
+    .button-blue { // button-blue start 
+        background-color: $buttonBlue;
+        border: 1px solid $buttonBlue;
+        width: 275px;
+        color: $regularFontColor;
+    } // button-blue end
 
-    .button-yellow { // button-yellow start 
-        border: 1px solid $fontColorAlternate;
-        background-color: $buttonYellow;
-        color: $fontColor;
-        border-radius: 50%;
-        padding: 10px;
-        margin: 10px 10px 10px 10px;
-        font-size: 40px;
-    } // button-yellow end
-
-    .number-0 { // number-0 start 
-        // border: 1px solid lightcoral;
-        // width: 150px;
-        // grid-area: zerodigit;
-        grid-column: 1/3;
-        grid-row: 5;
-        border-radius: 35px/30px;
-    } // number-0 end
-
+    .calculate { // .calculate start
+        // grid-area: calculate;
+        grid-column: 1/-1;
+        grid-row: 6/7;
+    }
+    // .number-0 { // number-0 start 
+    //     grid-area: zero;
+    // } // number-0 end
     // .number-1 {
     //     grid-area: one;
     // }
@@ -137,38 +117,35 @@ $buttonYellow: #ee964b;
     // .number-9 {
     //     grid-area: nine;
     // }
-    // .operator-cancel {
+    // .cancel {
     //     grid-area: cancel;
     // }
-    // .operator-changesign {
+    // .changesign {
     //     grid-area: changesign;
     // }
-    // .operator-percentage {
+    // .percentage {
     //     grid-area: percentage;
     // }
-    // .operator-divide {
-    //     grid-area: division;
+    // .divide {
+    //     grid-area: divide;
     // }
-    // .operator-multiply {
-    //     grid-area: multiplication;
+    // .multiply {
+    //     grid-area: multiply;
     // }
-    // .operator-substract {
-    //     grid-area: substraction;
+    // .substract {
+    //     grid-area: substract;
     // }
-    // .operator-add {
-    //     grid-area: addition;
+    // .add {
+    //     grid-area: add;
     // }
-    // .operator-decimal {
-    //     grid-area: decimaldigit;
+    // .decimal {
+    //     grid-area: decimal;
     // }
-    // .operator-calculate {
-    //     grid-area: calculate;
+    // .backspace {
+    //     grid-area: backspace;
     // }
-
-    &__footer { // &__footer start
-        border: 2px solid lightseagreen;
-        padding: 10px;
-        margin-bottom: 30px;
-    } // &__footer end
+    // .root {
+    //     grid-area: root;
+    // }
 
 } // calculator end
