@@ -86,7 +86,7 @@ $buttonBlue: #457b9d;
         box-shadow: 2px 2px $shadowColor;
     } // .button:active end
     .button:click { // .button:click start
-        border: 1px solid red;
+        background-color: red;
     } // .button:click end
     .button-lt-grey { // button-lt-grey start 
         background-color: $buttonLightGrey;
@@ -98,7 +98,6 @@ $buttonBlue: #457b9d;
         border: 1px solid $buttonBlue;
         width: 275px;
         color: $regularFontColor;
-        margin-bottom: 15;
     } // button-blue end
 
     .calculate { // .calculate start

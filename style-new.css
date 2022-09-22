@@ -63,7 +63,7 @@
   box-shadow: 2px 2px #6c757d;
 }
 .calculator .button:click {
-  background-color: red;
+  border: 1px solid red;
 }
 .calculator .button-lt-grey {
   background-color: #e9ecef;
@@ -74,6 +74,7 @@
   border: 1px solid #457b9d;
   width: 275px;
   color: #212529;
+  margin-bottom: 15;
 }
 .calculator .calculate {
   grid-column: 1/-1;
