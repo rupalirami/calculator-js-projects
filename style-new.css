@@ -55,10 +55,12 @@
   border: 1px solid #dee2e6;
   border-radius: 5px;
   width: 50px;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin: 5px 5px 5px 5px;
   box-shadow: 5px 5px #6c757d;
+}
+.calculator .button:active {
+  box-shadow: 2px 2px #6c757d;
 }
 .calculator .button-lt-grey {
   background-color: #e9ecef;

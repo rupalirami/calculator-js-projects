@@ -76,12 +76,15 @@ $buttonBlue: #457b9d;
         border: 1px solid $calculatorBackgroundColor;
         border-radius: 5px;
         width: 50px;
-        justify-content: center;
-        align-items: center;
+        text-align: center; // centers text in a 
+        // justify-content: center;
+        // align-items: center;
         margin: 5px 5px 5px 5px;
         box-shadow: 5px 5px $shadowColor;
     } // button end
-
+    .button:active {
+        box-shadow: 2px 2px $shadowColor;;
+    }
     .button-lt-grey { // button-lt-grey start 
         background-color: $buttonLightGrey;
         color: $regularFontColor;
