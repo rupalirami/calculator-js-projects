@@ -34,6 +34,7 @@ const numberSix = document.querySelector("#num-6");
 const numberSeven = document.querySelector("#num-7");
 const numberEight = document.querySelector("#num-8");
 const numberNine = document.querySelector("#num-9");
+const decimal = document.querySelector("#num-decimal");
 
 const oprAdd = document.querySelector("#opr-add");
 const oprSubstract = document.querySelector("#opr-substract");
@@ -57,21 +58,30 @@ let firstInput = "";
 let secondInput = "";
 let inputDisplayText = "";
 let resultsDisplayText = "";
-let isOperatorClicked = false;
 let operator = "";
-// let changeSignDisplay = "";
+let changeSignDisplay = "";
+let isNumberClicked = false;
+let isOperatorClicked = false;
+let isChangeSignClicked = false;
+
+
+// intializeParam() FUNCTION initialize all parameters after calculation
 const initializeParam = () => {
-    let firstInput = "";
-    let secondInput = "";
-    let inputDisplayText = "";
-    let resultsDisplayText = "";
-    let isOperatorClicked = false;
-    let operator = "";
-    // let changeSignDisplay = "";
+    firstInput = "";
+    secondInput = "";
+    inputDisplayText = "";
+    resultsDisplayText = "";
+    operator = "";
+    changeSignDisplay = "";
+    isNumberClicked = false;
+    isOperatorClicked = false;
+    isChangeSignClicked = false;
+
 };
 
-// calculateNow FUNCTION using two numbers and operator when opr-Calculate clicked and changes text for HTML classes input-display and results-display
+// isFirstClick() FUNCTION to check if a number has been clicked for first time
 
+// calculateNow FUNCTION using two numbers and operator when opr-Calculate clicked and changes text for HTML classes input-display and results-display
 const calculateNow = (first, second, operation) => {
     //change to return a variable and not explicit return
     // let results;
@@ -115,14 +125,7 @@ const calculateNow = (first, second, operation) => {
             break;
         case "√":
 // console.log("in case power")
-            if (second > 0 && second < 6) {
-// console.log("in power if");
-                results = Math.pow(first, 1/second).toFixed(2);
-            } else {
-// console.log("in power else")
-                // errorMsg = 1;
-                results = "Error: power can only be between 1 and 5 for now!";
-            };  
+            results = Math.pow(first, 1/second).toFixed(2);
             break;      
     } 
     return results;
@@ -134,7 +137,6 @@ oprAdd.addEventListener("click", () => {
     operator = "+";
     isOperatorClicked = true;
     inputDisplayText = inputDisplayText + operator;
-
 console.log(`opr variable on click is ${operator}`);
 
 });
@@ -179,31 +181,46 @@ console.log(`opr variable on click is ${operator}`);
 
 });
 actionCancel.addEventListener("click", () => {
-    firstInput = "";
-    secondInput = "";
+
     inputDisplayText = "0";
     resultsDisplayText = "0";
-    isOperatorClicked = false;
-    operator = "";
-
 console.log(`input display text on click is ${inputDisplayText}!`);
-    
     inputDisplay.innerHTML = inputDisplayText;
     resultsDisplay.innerHTML = resultsDisplayText;
+    initializeParam();
 });
 // Get NUMBER values
+decimal.addEventListener("click", () => {
+    if (firstInput != "" && isOperatorClicked) {
+        secondInput = secondInput + ".";
+        inputDisplayText = inputDisplayText + ".";
+    } else {
+        firstInput = firstInput + ".";
+        inputDisplayText = inputDisplayText + ".";
+    }
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+    inputDisplay.innerHTML = inputDisplayText;
+
+console.log(`inputDisplayText = ${inputDisplayText}`);
+});
 numberZero.addEventListener("click", () => {
     if (firstInput != "" && isOperatorClicked) {
         secondInput = secondInput + "0";
         inputDisplayText = inputDisplayText + "0";
-    } else {
+    } else if (inputDisplay != "0") {
         firstInput = firstInput + "0";
         inputDisplayText = inputDisplayText + "0";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
-    console.log(`inputDisplayText = ${inputDisplayText}`);
+
+console.log(`inputDisplayText = ${inputDisplayText}`);
 });
 numberOne.addEventListener("click", () => {
     if (firstInput != "" && isOperatorClicked) {
@@ -213,10 +230,13 @@ numberOne.addEventListener("click", () => {
         firstInput = firstInput + "1";
         inputDisplayText = inputDisplayText + "1";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
-        console.log(`inputDisplayText = ${inputDisplayText}`);
+
+console.log(`inputDisplayText = ${inputDisplayText}`);
 });
 numberTwo.addEventListener("click", () => {
     if (firstInput != "" && isOperatorClicked) {
@@ -226,8 +246,10 @@ numberTwo.addEventListener("click", () => {
         firstInput = firstInput + "2";''
         inputDisplayText = inputDisplayText + "2";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+        
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberThree.addEventListener("click", () => {
@@ -238,8 +260,10 @@ numberThree.addEventListener("click", () => {
         firstInput = firstInput + "3";
         inputDisplayText = inputDisplayText + "3";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+        
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberFour.addEventListener("click", () => {
@@ -250,8 +274,10 @@ numberFour.addEventListener("click", () => {
         firstInput = firstInput + "4";
         inputDisplayText = inputDisplayText + "4";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+        
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberFive.addEventListener("click", () => {
@@ -262,8 +288,10 @@ numberFive.addEventListener("click", () => {
         firstInput = firstInput + "5";
         inputDisplayText = inputDisplayText + "5";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+        
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+    
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberSix.addEventListener("click", () => {
@@ -274,8 +302,10 @@ numberSix.addEventListener("click", () => {
         firstInput = firstInput + "6";
         inputDisplayText = inputDisplayText + "6";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberSeven.addEventListener("click", () => {
@@ -286,8 +316,10 @@ numberSeven.addEventListener("click", () => {
         firstInput = firstInput + "7";
         inputDisplayText = inputDisplayText + "7";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberEight.addEventListener("click", () => {
@@ -298,8 +330,10 @@ numberEight.addEventListener("click", () => {
         firstInput = firstInput + "8";
         inputDisplayText = inputDisplayText + "8";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+ 
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 numberNine.addEventListener("click", () => {
@@ -310,8 +344,10 @@ numberNine.addEventListener("click", () => {
         firstInput = firstInput + "9";
         inputDisplayText = inputDisplayText + "9";
     }
-        console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
-        console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
+console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+
     inputDisplay.innerHTML = inputDisplayText;
 });
 // numArray.forEach((num) => {
@@ -320,18 +356,23 @@ numberNine.addEventListener("click", () => {
 
 // Calculate RESULTS on = click; initialize parameters
 actionCalculate.addEventListener("click",function() {
-        console.log(`input values are num1 ${firstInput} (${typeof firstInput}), opr ${operator}, num2 ${secondInput} (${typeof secondInput})`);
+
+console.log(`input values are num1 ${firstInput} (${typeof firstInput}), opr ${operator}, num2 ${secondInput} (${typeof secondInput})`);
+
     const firstInputNumber = Number(firstInput);
     const secondInputNumber = Number(secondInput);
     resultsDisplayText=calculateNow(firstInputNumber,secondInputNumber,operator);
-        console.log(`results = ${resultsDisplayText}`);
+
+console.log(`results = ${resultsDisplayText}`);
+
     resultsDisplay.innerHTML = resultsDisplayText;
-    firstInput = "";
-    secondInput = "";
-    inputDisplayText = "";
-    resultsDisplayText = "";
-    isOperatorClicked = false;
-    operator = "";
-    // initializeParam()
+    // firstInput = "";
+    // secondInput = "";
+    // inputDisplayText = "";
+    // resultsDisplayText = "";
+    // isOperatorClicked = false;
+    // operator = "";
     // changeSignDisplay = "";
+    initializeParam();
+
 });
