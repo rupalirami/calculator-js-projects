@@ -57,6 +57,7 @@ const initializeParam = () => {
     isDecimalClicked = false;
     isOperatorClicked = false;
     isChangeSignClicked = false;
+    resultsDisplay.style.fontSize = "35px";
 
 };
 
@@ -71,7 +72,7 @@ const changeFirstClick = () => {
 const calculateNow = (first, second, operation) => {
     //change to return a variable and not explicit return
     // let results;
-    // let errorMsg = 0;
+    let errorMsg = 0;
     // console.log(`first number is ${first}`);
     // console.log(`first number is ${second}`);
     console.log(`Operator is ${operation}`);
@@ -93,17 +94,16 @@ const calculateNow = (first, second, operation) => {
         case "/":
             console.log("in case division");
             if (second === 0) {
-// console.log("in division by 0");
-                // errorMsg = 1;
-                results = "Error: Division by 0 not permitted"
-                // clear secondNumberInput string variable and refresh display input
-                return;
+console.log("in division by 0");
+                errorMsg = 1;
+                results = "Error: Division by 0 not permitted";
+console.log("in div" + results);
+                resultsDisplay.style.fontSize = "15px";
+                break;
             } else {
 // console.log("in non-zero division")
                 results = first/second;
             }
-            // remove ternary command to ensure errorMsg can be captured
-            // results = (second === 0) ? "Error: Division by 0 not permitted": (first / second) ;
             break;
         case "%":
 // console.log("in case percentage");
@@ -252,17 +252,23 @@ console.log(`in decimal inputDisplayText = ${inputDisplayText}`);
 });
 numberZero.addEventListener("click", () => {
 console.log(`0 isFirstNumber= ${isFirstNumber}`);
+console.log(`0 firstInput= ${firstInput}`);
+console.log(`0 isOperatorClick= ${isOperatorClicked}`);
     if (isFirstNumber) {
         if (firstInput != "" && isOperatorClicked) {
+console.log("updating second input");
             secondInput = secondInput + "0";
             inputDisplayText = inputDisplayText + "0";
         } else {
+console.log("updating first input");
             firstInput = firstInput + "0";
-            inputDisplayText = inputDisplayText;
+            inputDisplayText = inputDisplayText + "0";
         };
         inputDisplay.innerHTML = inputDisplayText;
+        changeFirstClick();
     } 
     else {
+console.log(`0 isFirstNumber= ${isFirstNumber} do not append`);
         inputDisplay.innerHTML = 0;
     }
 // console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
@@ -271,8 +277,6 @@ console.log(`0 isFirstNumber= ${isFirstNumber}`);
 });
 numberOne.addEventListener("click", () => {
 console.log(`1 isFirstNumber= ${isFirstNumber}`);
-    changeFirstClick();
-console.log(`1 after func isFirstNumber= ${isFirstNumber}`);
     if (firstInput != "" && isOperatorClicked) {
         secondInput = secondInput + "1";
         inputDisplayText = inputDisplayText + "1";
@@ -280,6 +284,8 @@ console.log(`1 after func isFirstNumber= ${isFirstNumber}`);
         firstInput = firstInput + "1";
         inputDisplayText = inputDisplayText + "1";
     }
+    changeFirstClick();
+    console.log(`1 after func isFirstNumber= ${isFirstNumber}`);
 // console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
 // console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
     inputDisplay.innerHTML = inputDisplayText;
