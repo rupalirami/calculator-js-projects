@@ -42,7 +42,7 @@ const oprMultiply = document.querySelector("#opr-multiply");
 const oprDivide = document.querySelector("#opr-divide");
 const oprPercentage = document.querySelector("#opr-percentage");
 const oprRoot = document.querySelector("#opr-root");
-// const actionBkSpace = document.querySelector("#opr-bkspace");
+const actionBkSpace = document.querySelector("#opr-bkspace");
 const actionCancel = document.querySelector("#opr-cancel");
 // const actionChangeSign = document.querySelector("#changesign");
 const actionCalculate = document.querySelector("#opr-calculate");
@@ -61,6 +61,7 @@ let resultsDisplayText = "";
 let operator = "";
 let changeSignDisplay = "";
 let isNumberClicked = false;
+let isDecimalClicked = false;
 let isOperatorClicked = false;
 let isChangeSignClicked = false;
 
@@ -74,6 +75,7 @@ const initializeParam = () => {
     operator = "";
     changeSignDisplay = "";
     isNumberClicked = false;
+    isDecimalClicked = false;
     isOperatorClicked = false;
     isChangeSignClicked = false;
 
@@ -137,8 +139,10 @@ oprAdd.addEventListener("click", () => {
     operator = "+";
     isOperatorClicked = true;
     inputDisplayText = inputDisplayText + operator;
+
 console.log(`opr variable on click is ${operator}`);
 
+    inputDisplay.innerHTML = inputDisplayText;
 });
 oprSubstract.addEventListener("click", () => {
     operator = "-";
@@ -147,13 +151,16 @@ oprSubstract.addEventListener("click", () => {
 
 console.log(`opr variable on click is ${operator}`);
 
+    inputDisplay.innerHTML = inputDisplayText;  
 });
 oprMultiply.addEventListener("click", () => {
     operator = "*";
     isOperatorClicked = true;
-    inputDisplayText = inputDisplayText + operator;
+    inputDisplayText = `${inputDisplayText}x`;
 
 console.log(`opr variable on click is ${operator}`);
+
+    inputDisplay.innerHTML = inputDisplayText;
 
 });
 oprDivide.addEventListener("click", () => {
@@ -163,6 +170,7 @@ oprDivide.addEventListener("click", () => {
 
 console.log(`opr variable on click is ${operator}`);
 
+    inputDisplay.innerHTML = inputDisplayText;
 });
 oprPercentage.addEventListener("click", () => {
     operator = "%";
@@ -171,6 +179,7 @@ oprPercentage.addEventListener("click", () => {
         
 console.log(`opr variable on click is ${operator}`);
 
+    inputDisplay.innerHTML = inputDisplayText;
 });
 oprRoot.addEventListener("click", () => {
     operator = "√";
@@ -179,6 +188,7 @@ oprRoot.addEventListener("click", () => {
         
 console.log(`opr variable on click is ${operator}`);
 
+    inputDisplay.innerHTML = inputDisplayText;
 });
 actionCancel.addEventListener("click", () => {
 
@@ -194,9 +204,13 @@ decimal.addEventListener("click", () => {
     if (firstInput != "" && isOperatorClicked) {
         secondInput = secondInput + ".";
         inputDisplayText = inputDisplayText + ".";
-    } else {
+    } else if (!isDecimalClicked){
         firstInput = firstInput + ".";
         inputDisplayText = inputDisplayText + ".";
+        isDecimalClicked = true;
+    } else {
+        firstInput = firstInput;
+        inputDisplayText = inputDisplayText;
     }
 
 console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
@@ -210,10 +224,10 @@ numberZero.addEventListener("click", () => {
     if (firstInput != "" && isOperatorClicked) {
         secondInput = secondInput + "0";
         inputDisplayText = inputDisplayText + "0";
-    } else if (inputDisplay != "0") {
+    } else if (inputDisplay = "0") {
         firstInput = firstInput + "0";
-        inputDisplayText = inputDisplayText + "0";
-    }
+        inputDisplayText = inputDisplayText;
+    };
 
 console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
 console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
@@ -366,13 +380,5 @@ console.log(`input values are num1 ${firstInput} (${typeof firstInput}), opr ${o
 console.log(`results = ${resultsDisplayText}`);
 
     resultsDisplay.innerHTML = resultsDisplayText;
-    // firstInput = "";
-    // secondInput = "";
-    // inputDisplayText = "";
-    // resultsDisplayText = "";
-    // isOperatorClicked = false;
-    // operator = "";
-    // changeSignDisplay = "";
     initializeParam();
-
 });
