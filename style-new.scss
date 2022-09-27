@@ -60,13 +60,6 @@ $buttonBlue: #457b9d;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        // grid-template-areas: 
-        // "cancel" "changesign" "percentage" "divide"
-        // "seven" "eight" "nine" "multiply"
-        // "four" "five" "six" "substract"
-        // "one" "two" "three" "plus"
-        // "zero" "decimal" "backspace" "root"
-        // "calculate" "calculate" "calculate" "calculate";
     } // &__inputs end
 
     .button { // button start 
@@ -77,8 +70,6 @@ $buttonBlue: #457b9d;
         border-radius: 5px;
         width: 50px;
         text-align: center; // centers text in a 
-        // justify-content: center;
-        // align-items: center;
         margin: 5px 5px 5px 5px;
         box-shadow: 5px 5px $shadowColor;
     } // button end
@@ -112,65 +103,4 @@ $buttonBlue: #457b9d;
         grid-column: 1/-1;
         grid-row: 6/7;
     }
-    // .number-0 { // number-0 start 
-    //     grid-area: zero;
-    // } // number-0 end
-    // .number-1 {
-    //     grid-area: one;
-    // }
-    // .number-2 {
-    //     grid-area: two;
-    // }
-    // .number-3 {
-    //     grid-area: three;
-    // }
-    // .number-4 {
-    //     grid-area: four;
-    // }
-    // .number-5 {
-    //     grid-area: five;
-    // }
-    // .number-6 {
-    //     grid-area: six;
-    // }
-    // .number-7 {
-    //     grid-area: seven;
-    // }
-    // .number-8 {
-    //     grid-area: eight;
-    // }
-    // .number-9 {
-    //     grid-area: nine;
-    // }
-    // .cancel {
-    //     grid-area: cancel;
-    // }
-    // .changesign {
-    //     grid-area: changesign;
-    // }
-    // .percentage {
-    //     grid-area: percentage;
-    // }
-    // .divide {
-    //     grid-area: divide;
-    // }
-    // .multiply {
-    //     grid-area: multiply;
-    // }
-    // .substract {
-    //     grid-area: substract;
-    // }
-    // .add {
-    //     grid-area: add;
-    // }
-    // .decimal {
-    //     grid-area: decimal;
-    // }
-    // .backspace {
-    //     grid-area: backspace;
-    // }
-    // .root {
-    //     grid-area: root;
-    // }
-
 } // calculator end
