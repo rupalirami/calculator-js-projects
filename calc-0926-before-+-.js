@@ -23,7 +23,7 @@ const oprPercentage = document.querySelector("#opr-percentage");
 const oprRoot = document.querySelector("#opr-root");
 const actionBkSpace = document.querySelector("#opr-bkspace");
 const actionCancel = document.querySelector("#opr-cancel");
-const actionChangeSign = document.querySelector("#changesign");
+// const actionChangeSign = document.querySelector("#changesign");
 const actionCalculate = document.querySelector("#opr-calculate");
 
 const inputDisplay = document.querySelector(".input-display");
@@ -38,15 +38,12 @@ let secondInput = "";
 let inputDisplayText = "";
 let resultsDisplayText = "";
 let operator = "";
-let operatorDisplay = "";
-
-let firstSignCount = 0;
-let secondSignCount = 0;
-
+let changeSignDisplay = "";
 let isFirstNumber = false;
 let isDecimalClicked = false;
 let isOperatorClicked = false;
 let isChangeSignClicked = false;
+
 
 // intializeParam() FUNCTION initialize all parameters after calculation
 const initializeParam = () => {
@@ -55,17 +52,13 @@ const initializeParam = () => {
     inputDisplayText = "";
     resultsDisplayText = "";
     operator = "";
-    operatorDisplay = "";
-    
-    firstSignCount = 0;
-    secondSignCount = 0;
-    
+    changeSignDisplay = "";
     isFirstNumber = false;
     isDecimalClicked = false;
     isOperatorClicked = false;
     isChangeSignClicked = false;
-
     resultsDisplay.style.fontSize = "35px";
+
 };
 
 // changeFirstClick() FUNCTION to check if a number has been clicked for first time
@@ -78,10 +71,13 @@ const changeFirstClick = () => {
 // calculateNow FUNCTION using two numbers and operator when opr-Calculate clicked and changes text for HTML classes input-display and results-display
 const calculateNow = (first, second, operation) => {
     //change to return a variable and not explicit return
+    // let results;
     let errorMsg = 0;
-console.log(`Operator is ${operation}`);
-console.log(`first input in func ${first} (${typeof first})`);
-console.log(`second input in func ${second} (${typeof second})`);
+    // console.log(`first number is ${first}`);
+    // console.log(`first number is ${second}`);
+    console.log(`Operator is ${operation}`);
+    console.log(`first input in func ${first} (${typeof first})`);
+    console.log(`second input in func ${second} (${typeof second})`);
     switch (operation) {
         case "+":
             results = (first + second);
@@ -135,7 +131,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprSubstract.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator, operatorDisplay = "-";
+        operator = "-";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -147,7 +143,6 @@ console.log(`opr variable on click is ${operator}`);
 oprMultiply.addEventListener("click", () => {
     if (!isOperatorClicked) {
         operator = "*";
-        operatorDisplay = "x";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = `${inputDisplayText}x`;
@@ -158,7 +153,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprDivide.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator, operatorDisplay = "/";
+        operator = "/";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -168,7 +163,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprPercentage.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator, operatorDisplay = "%";
+        operator = "%";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -179,7 +174,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprRoot.addEventListener("click", () => {
     if (!isOperatorClicked) {   
-        operator, operatorDisplay = "√";
+        operator = "√";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -197,64 +192,26 @@ actionCancel.addEventListener("click", () => {
 // console.log(`isFirstNumber= ${isFirstNumber}`);
 });
 
-actionChangeSign.addEventListener("click", () => {
-    let firstInputSign, secondInputSign, newFirstInput, newSecondInput = "";
-console.log(`in changesign isOprclicked=${isOperatorClicked}`);
-console.log(`firstinput=${firstInput}`);
-console.log(`secondinput=${secondInput}`);
-console.log("before");
-console.log(`before firstcount=${firstSignCount} secondcount=${secondSignCount}`);
-
-console.log("start logic")
-    if (!isOperatorClicked) {
-console.log(`orig firstcount=${firstSignCount}`);  
-        firstSignCount = firstSignCount + 1;
-console.log(`new firstcount=${firstSignCount}`);       
-        if ((firstSignCount % 2) != 0)  { //odd clicks, -ve number
-            firstInputSign = "-";
-            // firstSignCount = firstSignCount + 1;
-console.log(`is-odd firstcount=${firstSignCount}`);  
-console.log(`firstSign= ${firstInputSign}`);
-        } else {
-console.log(`is-even firstcount=${firstSignCount%2}`);
-            firstInputSign = "";
-            // firstSignCount = firstSignCount + 1;
-console.log(`firstSign= ${firstInputSign}`);
-        };
-        newFirstInput = firstInputSign + firstInput;
-console.log(`after firstsign=${firstInputSign} firstinput=${newFirstInput}`)
-        inputDisplayText = newFirstInput;
-
-console.log(`in changesign  firstnum=${newFirstInput}`);
-console.log(`in changesign firstnumber inputdisp=${inputDisplayText}`);
-    } else if (isOperatorClicked) {
-
-console.log(`orig secondcount=${secondSignCount}`);
-        secondSignCount = secondSignCount + 1;
-console.log(`new secondcount=${secondSignCount}`);  
-        if ((secondSignCount % 2) != 0)  { //odd clicks, -ve number
-console.log(`is-odd secondcount=${secondSignCount%2}`)
-            secondInputSign = "-";
-            // secondSignCount = secondSignCount + 1;
-console.log(`secondSign= ${secondInputSign}`);
-        } else {
-            secondInputSign = "";
-console.log(`is-even secondcount=${secondSignCount%2}`)
-            // secondSignCount = secondSignCount + 1;
-        };
-        newSecondInput = secondInputSign + secondInput;
-console.log(`len of secondinput=${secondInput.length}`);
-console.log(`slice inputdisplay=${inputDisplayText.slice(0,-secondInput.length)}`);
-        inputDisplayText = inputDisplayText.slice(0,-secondInput.length) + newSecondInput;
-console.log(`in changesign  secondnum=${newSecondInput}`);
-console.log(`in changesign secondnum inputdisp=${inputDisplayText}`);
-    }
-console.log(`firstinput=${firstInput} & newFirstInput=${newFirstInput}`);
-console.log(`secondinput=${secondInput} & newSecondInput=${newSecondInput}`);
-    inputDisplay.innerHTML = inputDisplayText;
-});
 // Get NUMBER values
 
+//ORIGINAL DECIMAL
+// decimal.addEventListener("click", () => {
+//     if (!isDecimalClicked) {
+//         if (firstInput != "" && isOperatorClicked) {
+//             secondInput = secondInput + ".";
+//             inputDisplayText = inputDisplayText + ".";
+//             isDecimalClicked = true;
+//         } else
+//             firstInput = firstInput + ".";
+//             inputDisplayText = inputDisplayText + ".";
+//             isDecimalClicked = true;
+//         }
+
+// console.log(`first input on click-1 is ${firstInput} data value is ${typeof firstInput}`);
+// console.log(`second input on click-1 is ${secondInput} data value ${typeof secondInput}`);
+// console.log(`inputDisplayText = ${inputDisplayText}`);
+//     inputDisplay.innerHTML = inputDisplayText;
+// });
 decimal.addEventListener("click", () => {
 console.log(`decimal clicked is ${isDecimalClicked}`)
     if (!isDecimalClicked) {
@@ -454,15 +411,10 @@ console.log(`after func isFirstNumber= ${isFirstNumber}`);
 // Calculate RESULTS on = click; initialize parameters
 actionCalculate.addEventListener("click",function() {
 
-console.log(`calculate input values are num1 ${firstInput} (${typeof firstInput}), opr ${operator}, oprdisplay ${operatorDisplay} num2 ${secondInput} (${typeof secondInput})`);
-console.log(`inputstring=${inputDisplayText}`);
-    const myNumbers = inputDisplayText.split(operatorDisplay);
-console.log(`myNumbers= ${myNumbers}`);
-    const firstInputNumber = Number(myNumbers[0]);
-    const secondInputNumber = Number(myNumbers[1]);
-console.log(`from inputtext values are num1 ${firstInputNumber} (${typeof firstInputNumber}), opr ${operator}, num2 ${secondInputNumber} (${typeof secondInputNumber})`);
-    // const firstInputNumber = Number(firstInput);
-    // const secondInputNumber = Number(secondInput);
+console.log(`calculate input values are num1 ${firstInput} (${typeof firstInput}), opr ${operator}, num2 ${secondInput} (${typeof secondInput})`);
+
+    const firstInputNumber = Number(firstInput);
+    const secondInputNumber = Number(secondInput);
     resultsDisplayText=calculateNow(firstInputNumber,secondInputNumber,operator);
 
 console.log(`calculate results = ${resultsDisplayText}`);
