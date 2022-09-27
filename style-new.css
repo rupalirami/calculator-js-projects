@@ -32,13 +32,13 @@
   justify-content: end;
   align-items: center;
   color: #6c757d;
-  font-size: 20px;
+  font-size: 18px;
 }
 .calculator__results .results-display {
   justify-content: end;
   align-items: center;
   color: #457b9d;
-  font-size: 35px;
+  font-size: 25px;
 }
 .calculator__inputs {
   background-color: whitesmoke;

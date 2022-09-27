@@ -69,7 +69,7 @@ const initializeParam = () => {
     isOperatorClicked = false;
     isChangeSignClicked = false;
 
-    resultsDisplay.style.fontSize = "35px";
+    resultsDisplay.style.fontSize = "25px";
 };
 
 // changeFirstClick() FUNCTION to check if a number has been clicked for first time
@@ -104,9 +104,9 @@ console.log(`second input in func ${second} (${typeof second})`);
             if (second === 0) {
 console.log("in division by 0");
                 errorMsg = 1;
+                resultsDisplay.style.fontSize = "15px";
                 results = "Error: Division by 0 not permitted";
 console.log("in div" + results);
-                resultsDisplay.style.fontSize = "15px";
                 break;
             } else {
 // console.log("in non-zero division")
