@@ -44,15 +44,11 @@ let operatorDisplay = "";
 let firstSignCount = 0;
 let secondSignCount = 0;
 let operatorPosition = 0;
-let operatorCount = 0;
-let backspaceCount = 0;
 
 let isFirstNumber = false;
 let isDecimalClicked = false;
 let isOperatorClicked = false;
 let isChangeSignClicked = false;
-// resultsDisplay.style.fontSize = "25px";
-// resultsDisplay.style.color = "#457b9d";
 
 // intializeParam() FUNCTION initialize all parameters after calculation
 const initializeParam = () => {
@@ -67,16 +63,13 @@ const initializeParam = () => {
     firstSignCount = 0;
     secondSignCount = 0;
     operatorPosition = 0;
-    operatorCount = 0;
-    backspaceCount = 0;
     
     isFirstNumber = false;
     isDecimalClicked = false;
     isOperatorClicked = false;
     isChangeSignClicked = false;
 
-    // resultsDisplay.style.fontSize = "25px";
-    // resultsDisplay.style.color = "#457b9d";
+    resultsDisplay.style.fontSize = "25px";
 };
 
 // changeFirstClick() FUNCTION to check if a number has been clicked for first time
@@ -111,13 +104,8 @@ console.log(`second input in func ${second} (${typeof second})`);
             if (second === 0) {
 console.log("in division by 0");
                 errorMsg = 1;
-                resultsDisplay.style.color = "#e63946";
-                // resultsDisplay.style.font = "italic normal x-large arial,sans-serif";
-                // // resultsDisplay.style.backgroundColor = "blue";
-                resultsDisplay.style.fontSize = "20px";
-
-console.log(`fontsize=${resultsDisplay.style.fontSize}`);
-                results = "Division by 0 not permitted";
+                resultsDisplay.style.fontSize = "15px";
+                results = "Error: Division by 0 not permitted";
 console.log("in div" + results);
                 break;
             } else {
@@ -131,7 +119,7 @@ console.log("in div" + results);
             break;
         case "√":
 // console.log("in case power")
-            results = Math.pow(first, 1/second).toFixed(0);
+            results = Math.pow(first, 1/second).toFixed(2);
             break;      
     } 
     return results;
@@ -211,8 +199,6 @@ console.log(`opr variable on click is ${operator}`);
 actionCancel.addEventListener("click", () => {
     inputDisplayText = "0";
     resultsDisplayText = "0";
-    resultsDisplay.style.fontSize = "25px";
-    resultsDisplay.style.color = "#457b9d";
 // console.log(`input display text on click is ${inputDisplayText}!`);
     inputDisplay.innerHTML = inputDisplayText;
     resultsDisplay.innerHTML = resultsDisplayText;
@@ -278,56 +264,7 @@ console.log(`secondinput=${secondInput} & newSecondInput=${newSecondInput}`);
 });
 
 actionBkSpace.addEventListener("click", () => {
-//backspace code
-let newFirstInput = firstInput;
-let newSecondInput = secondInput;
-console.log(`in bkspace isOprclicked=${isOperatorClicked} bkspacecount=${backspaceCount}`);
-console.log(`firstinput=${firstInput} newfirst=${newFirstInput}`);
-console.log(`secondinput=${secondInput} newsecond=${newSecondInput}`);
-console.log(`oprpostion=${operatorPosition}`);
-console.log("start logic")
-    if (!isOperatorClicked) {
-console.log(`in not oprclicked before bkspacecount=${backspaceCount}`);  
-        backspaceCount = backspaceCount + 1;
-console.log(`new bkspacecount=${backspaceCount}`);       
- 
-console.log(`newfirstinput= ${firstInput.substring(0,firstInput.length-1)}`);
-        newFirstInput = firstInput.substring(0,firstInput.length-1);
-        firstInput = newFirstInput;
-console.log(`after bkspace count=${backspaceCount} newfirst=${newFirstInput}`)
-        if (newFirstInput != "") {
-            inputDisplayText = newFirstInput;
-        } else {
-            inputDisplayText = 0;
-            isFirstNumber = false;
-        }
-
-console.log(`in bkspace not oprclicked inputdisp=${inputDisplayText}`);
-    } else if (isOperatorClicked) {
-        operatorPosition = inputDisplayText.indexOf(operatorDisplay);
-console.log(`opr postion=${operatorPosition}`);
-console.log(`in Oprclicked before bkspacecount=${backspaceCount}`);  
-        backspaceCount = backspaceCount + 1;
-console.log(`new bkspacecount=${backspaceCount}`);       
-        
-console.log(`newsecondinput=${secondInput.substring(0,secondInput.length-1)}`);
-        newSecondInput = secondInput.substring(0,secondInput.length-1);
-        secondInput = newSecondInput;
-console.log(`after bkspace count=${backspaceCount} secondinput=${newSecondInput}`)
-        if (inputDisplayText.length - 1 >= operatorPosition + 1) {
-            inputDisplayText = newFirstInput + operatorDisplay + newSecondInput;
-        } else {
-            inputDisplayText = newFirstInput;
-            isOperatorClicked = false;
-        }
-console.log(`in bkspace secondnum=${newSecondInput}`);
-console.log(`in bkspace secondnumber inputdisp=${inputDisplayText}`);
-console.log(`is oprclicked=${isOperatorClicked}`);
-    };
-    
-console.log(`firstinput=${firstInput} & newFirstInput=${newFirstInput}`);
-console.log(`secondinput=${secondInput} & newSecondInput=${newSecondInput}`);
-    inputDisplay.innerHTML = inputDisplayText;
+    //backspace code
 });
 
 // Get NUMBER values

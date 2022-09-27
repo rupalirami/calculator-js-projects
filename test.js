@@ -51,8 +51,6 @@ let isFirstNumber = false;
 let isDecimalClicked = false;
 let isOperatorClicked = false;
 let isChangeSignClicked = false;
-// resultsDisplay.style.fontSize = "25px";
-// resultsDisplay.style.color = "#457b9d";
 
 // intializeParam() FUNCTION initialize all parameters after calculation
 const initializeParam = () => {
@@ -75,8 +73,7 @@ const initializeParam = () => {
     isOperatorClicked = false;
     isChangeSignClicked = false;
 
-    // resultsDisplay.style.fontSize = "25px";
-    // resultsDisplay.style.color = "#457b9d";
+    resultsDisplay.style.fontSize = "25px";
 };
 
 // changeFirstClick() FUNCTION to check if a number has been clicked for first time
@@ -111,13 +108,8 @@ console.log(`second input in func ${second} (${typeof second})`);
             if (second === 0) {
 console.log("in division by 0");
                 errorMsg = 1;
-                resultsDisplay.style.color = "#e63946";
-                // resultsDisplay.style.font = "italic normal x-large arial,sans-serif";
-                // // resultsDisplay.style.backgroundColor = "blue";
-                resultsDisplay.style.fontSize = "20px";
-
-console.log(`fontsize=${resultsDisplay.style.fontSize}`);
-                results = "Division by 0 not permitted";
+                resultsDisplay.style.fontSize = "15px";
+                results = "Error: Division by 0 not permitted";
 console.log("in div" + results);
                 break;
             } else {
@@ -131,7 +123,7 @@ console.log("in div" + results);
             break;
         case "√":
 // console.log("in case power")
-            results = Math.pow(first, 1/second).toFixed(0);
+            results = Math.pow(first, 1/second).toFixed(2);
             break;      
     } 
     return results;
@@ -211,8 +203,6 @@ console.log(`opr variable on click is ${operator}`);
 actionCancel.addEventListener("click", () => {
     inputDisplayText = "0";
     resultsDisplayText = "0";
-    resultsDisplay.style.fontSize = "25px";
-    resultsDisplay.style.color = "#457b9d";
 // console.log(`input display text on click is ${inputDisplayText}!`);
     inputDisplay.innerHTML = inputDisplayText;
     resultsDisplay.innerHTML = resultsDisplayText;
