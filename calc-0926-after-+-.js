@@ -36,14 +36,12 @@ console.log("numbers and operators %,/,*,-,+,√ working");
 let firstInput = "";
 let secondInput = "";
 let inputDisplayText = "";
-let newInputDisplayText = "";
 let resultsDisplayText = "";
 let operator = "";
 let operatorDisplay = "";
 
 let firstSignCount = 0;
 let secondSignCount = 0;
-let operatorPosition = 0;
 
 let isFirstNumber = false;
 let isDecimalClicked = false;
@@ -55,14 +53,12 @@ const initializeParam = () => {
     firstInput = "";
     secondInput = "";
     inputDisplayText = "";
-    newInputDisplayText = "";
     resultsDisplayText = "";
     operator = "";
     operatorDisplay = "";
     
     firstSignCount = 0;
     secondSignCount = 0;
-    operatorPosition = 0;
     
     isFirstNumber = false;
     isDecimalClicked = false;
@@ -130,7 +126,6 @@ oprAdd.addEventListener("click", () => {
     // oprAdd.value;
     if (!isOperatorClicked) {
         operator = "+";
-        operatorDisplay = "+";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -140,8 +135,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprSubstract.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator = "-";
-        operatorDisplay = "-";
+        operator, operatorDisplay = "-";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -164,8 +158,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprDivide.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator = "/";
-        operatorDisplay = "/";
+        operator, operatorDisplay = "/";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -175,8 +168,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprPercentage.addEventListener("click", () => {
     if (!isOperatorClicked) {
-        operator = "%";
-        operatorDisplay = "%";
+        operator, operatorDisplay = "%";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -187,8 +179,7 @@ console.log(`opr variable on click is ${operator}`);
 });
 oprRoot.addEventListener("click", () => {
     if (!isOperatorClicked) {   
-        operator = "√";
-        operatorDisplay = "√";
+        operator, operatorDisplay = "√";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
@@ -262,11 +253,6 @@ console.log(`firstinput=${firstInput} & newFirstInput=${newFirstInput}`);
 console.log(`secondinput=${secondInput} & newSecondInput=${newSecondInput}`);
     inputDisplay.innerHTML = inputDisplayText;
 });
-
-actionBkSpace.addEventListener("click", () => {
-    //backspace code
-});
-
 // Get NUMBER values
 
 decimal.addEventListener("click", () => {

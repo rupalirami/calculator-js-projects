@@ -92,7 +92,13 @@ $buttonBlue: #457b9d;
         background-color: $buttonLightGrey;
         color: $regularFontColor;
     } // button-lt-end end
-
+    .button-grey { // button-lt-grey start 
+        background-color: #b5bdc8;
+        color: $regularFontColor;
+    } // button-end end
+    .button-grey:active { // .button:active start
+        box-shadow: 5px 5px $shadowColor;
+    } // .button:active end
     .button-blue { // button-blue start 
         background-color: $buttonBlue;
         border: 1px solid $buttonBlue;

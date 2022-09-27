@@ -69,6 +69,13 @@
   background-color: #e9ecef;
   color: #212529;
 }
+.calculator .button-grey {
+  background-color: #b5bdc8;
+  color: #212529;
+}
+.calculator .button-grey:active {
+  box-shadow: 5px 5px #6c757d;
+}
 .calculator .button-blue {
   background-color: #457b9d;
   border: 1px solid #457b9d;
