@@ -32,7 +32,7 @@
   justify-content: end;
   align-items: center;
   color: #6c757d;
-  font-size: 20px;
+  font-size: 18px;
 }
 .calculator__results .results-display {
   justify-content: end;
@@ -86,4 +86,4 @@
 .calculator .calculate {
   grid-column: 1/-1;
   grid-row: 6/7;
-}/*# sourceMappingURL=style-new.css.map */
+}/*# sourceMappingURL=oldtest.css.map */

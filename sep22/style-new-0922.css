@@ -38,7 +38,7 @@
   justify-content: end;
   align-items: center;
   color: #457b9d;
-  font-size: 25px;
+  font-size: 35px;
 }
 .calculator__inputs {
   background-color: whitesmoke;
@@ -63,27 +63,19 @@
   box-shadow: 2px 2px #6c757d;
 }
 .calculator .button:click {
-  border: 1px solid red;
+  background-color: red;
 }
 .calculator .button-lt-grey {
   background-color: #e9ecef;
   color: #212529;
-}
-.calculator .button-grey {
-  background-color: #b5bdc8;
-  color: #212529;
-}
-.calculator .button-grey:active {
-  box-shadow: 5px 5px #6c757d;
 }
 .calculator .button-blue {
   background-color: #457b9d;
   border: 1px solid #457b9d;
   width: 275px;
   color: #212529;
-  margin-bottom: 15px;
 }
 .calculator .calculate {
   grid-column: 1/-1;
   grid-row: 6/7;
-}/*# sourceMappingURL=style-new.css.map */
+}/*# sourceMappingURL=style-new-0922.css.map */

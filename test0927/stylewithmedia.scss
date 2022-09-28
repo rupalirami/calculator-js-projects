@@ -20,21 +20,27 @@ $buttonBlue: #457b9d;
 } // * end
 
 main {
-    display: flex;
-    margin: 5px 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
+
 .calculator { //calculator start
     border: 2px solid black;
     border-radius: 25px;
     background-color: $calculatorBackgroundColor;
     width: 375px;
-    height: 65vh;
-    // padding: 20px;
-    // margin: 50px 30px 50px 50px;
-    margin: 30px 10px 10px 10px;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+    // align-items: center;
+
+    @media screen and (min-width: 375px) { 
+        // border: 2px solid red;
+        width: 90%;
+        height: 80%;
+        margin: 15px;
+        padding: 0;
+        justify-items: center;
+        align-items: center;
+    }
 
     &__results { // &__results start
         // border: 1px solid red;
@@ -44,13 +50,26 @@ main {
         justify-content: center;
         align-items:flex-end;
         padding: 10px;
-        margin: 20px 10px 20px 10px;
+        @media screen and (min-width: 375px) { 
+            margin: 15px;
+            padding: 10px;
+            justify-items: center;
+            align-items: flex-end;
+        }
        .input-display { // .input-display start
             justify-content: end;
             align-items: center;
             color: $inputsFontColor;
             font-size: 20px;
         } // .input-display end
+        @media screen and (min-width: 375px) { 
+            // border: 2px solid blue;
+            height: 50%;
+            margin: 15px;
+            padding: 10px;
+            justify-items: center;
+            align-items: flex-end;
+        }
         .results-display { // .results-display start
             justify-content: end;
             align-items: center;
@@ -61,12 +80,19 @@ main {
 
     &__inputs { // &__inputs start
         background-color: $backgroundColor;
-        // height: 360px;
-        height: 45vh;
-        margin: 10px 10px 10px 10px;
+        margin: 10px 0px 10px 0px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        @media screen and (min-width: 375px) { 
+            // border: 2px solid black;
+            margin: 15px;
+            padding: 10px;
+            justify-items: center;
+            align-items: flex-end;
+        }
     } // &__inputs end
 
     .button { // button start 
@@ -76,16 +102,29 @@ main {
         border: 1px solid $calculatorBackgroundColor;
         border-radius: 5px;
         width: 50px;
+        gap: 5px;
         text-align: center; // centers text in a 
         margin: 5px 5px 5px 5px;
         box-shadow: 5px 5px $shadowColor;
+        @media screen and (min-width: 375px) { 
+            // border: 2px solid cyan;
+            width: 55%;
+            gap: 2px;
+            font-size: 30px;
+            margin: 0px;
+            // height: 80%;
+            // margin: 15px;
+            // padding: 10px;
+            justify-items: center;
+            align-items: center;
+        }
     } // button end
     .button:active { // .button:active start
         box-shadow: 2px 2px $shadowColor;
     } // .button:active end
-    // .button:click { // .button:click start
-    //     border: 1px solid red;
-    // } // .button:click end
+    .button:click { // .button:click start
+        // border: 1px solid red;
+    } // .button:click end
     .button-lt-grey { // button-lt-grey start 
         background-color: $buttonLightGrey;
         color: $regularFontColor;
@@ -100,10 +139,20 @@ main {
     .button-blue { // button-blue start 
         background-color: $buttonBlue;
         border: 1px solid $buttonBlue;
-        width: 275px;
+        // width: 275px;
+        width: 335px;
         color: $regularFontColor;
         margin-bottom: 15px;
-        justify-self: center;
+        @media screen and (min-width: 375px) { 
+            // border: 2px solid goldenrod;
+            width: 88%;
+            margin: 0px;
+            // height: 80%;
+            // margin: 15px;
+            // padding: 10px;
+            justify-items: center;
+            align-items: center;
+        }
     } // button-blue end
 
     .calculate { // .calculate start
