@@ -51,8 +51,7 @@ let isFirstNumber = false;
 let isDecimalClicked = false;
 let isOperatorClicked = false;
 let isChangeSignClicked = false;
-// resultsDisplay.style.fontSize = "25px";
-// resultsDisplay.style.color = "#457b9d";
+let isPercentClickedAfter = false; // 0928
 
 // intializeParam() FUNCTION initialize all parameters after calculation
 const initializeParam = () => {
@@ -74,6 +73,7 @@ const initializeParam = () => {
     isDecimalClicked = false;
     isOperatorClicked = false;
     isChangeSignClicked = false;
+    isPercentClickedAfter = false; // 0928
 
     // resultsDisplay.style.fontSize = "25px";
     // resultsDisplay.style.color = "#457b9d";
@@ -166,12 +166,20 @@ oprDivide.addEventListener("click", () => {
     inputDisplay.innerHTML = inputDisplayText;
 });
 oprPercentage.addEventListener("click", () => {
-    if (!isOperatorClicked) {
+    if (!isOperatorClicked && !isPercentClickedAfter) { // 0928
+        // if (!isOperatorClicked) {
         operator = "%";
         operatorDisplay = "%";
         isOperatorClicked = true;
         isDecimalClicked = false;
         inputDisplayText = inputDisplayText + operator;
+    } else if (isOperatorClicked && !isPercentClickedAfter) { //0928
+        // operator = "%";
+        // operatorDisplay = "%";
+        isOperatorClicked = true;
+        isDecimalClicked = false;
+        inputDisplayText = inputDisplayText + "%";
+        isPercentClickedAfter = true;
     }
     inputDisplay.innerHTML = inputDisplayText;
 });
@@ -398,10 +406,37 @@ numberNine.addEventListener("click", () => {
 
 // Calculate RESULTS on = click; initialize parameters
 actionCalculate.addEventListener("click",function() {
-    const myNumbers = inputDisplayText.split(operatorDisplay);
-    const firstInputNumber = Number(myNumbers[0]);
-    const secondInputNumber = Number(myNumbers[1]);
-    resultsDisplayText=calculateNow(firstInputNumber,secondInputNumber,operator);
+// console.log(`opr=${operatorDisplay} inputDisplayText.split= ${inputDisplayText.split(operatorDisplay)}`);
+//     const myNumbers = inputDisplayText.split(operatorDisplay);
+//     const firstInputNumber = Number(myNumbers[0]);
+//     const secondInputNumber = Number(myNumbers[1]);
+// console.log(`before if first=${firstInputNumber}, seond=${secondInputNumber}, oprdisp=${operatorDisplay}, opr=${operator}, results=${resultsDisplayText}`);
+
+    if (!isPercentClickedAfter) {
+        const myNumbers = inputDisplayText.split(operatorDisplay);
+        const firstInputNumber = Number(myNumbers[0]);
+        const secondInputNumber = Number(myNumbers[1]);
+        resultsDisplayText=calculateNow(firstInputNumber,secondInputNumber,operator);
+console.log(`!%clicked first=${firstInputNumber}, second=${secondInputNumber}, oprdisp=${operatorDisplay}, opr=${operator}, results=${resultsDisplayText}`);
+    } else if (isPercentClickedAfter) {
+        if (operatorDisplay === "x") {
+            operator = "*";
+        }
+        const newInputDisplayText = inputDisplayText.substring(0,inputDisplayText.length-1);
+console.log(`inputdisplay= ${inputDisplayText} newinput=${newInputDisplayText}`);
+console.log(`opr=${operator} oprdisplay=${operatorDisplay}`);
+        const myNumbers = newInputDisplayText.split(operatorDisplay);
+console.log(`mynumbers=${myNumbers}`);
+        const firstInputNumber = Number(myNumbers[0]);
+        const secondInputNumber = Number(myNumbers[1]);
+
+console.log(`%clicked:1 first=${firstInputNumber}, second=${secondInputNumber}, oprdisp=${operatorDisplay} opr=${operator}`);
+        const percentResults = Number(calculateNow(firstInputNumber,secondInputNumber,"%"));
+console.log(`%calculation first=${firstInputNumber}, second=${secondInputNumber}, percentresult=${percentResults}, oprdisp=${operatorDisplay} opr=${operator}`);
+        resultsDisplayText=calculateNow(firstInputNumber,percentResults,operator);
+console.log(`results first=${firstInputNumber}, second=${secondInputNumber}, oprdisp=${operatorDisplay} opr=${operator}, results=${resultsDisplayText}`);
+// console.log("new code to be added")
+    }
 
     resultsDisplay.innerHTML = resultsDisplayText;
     initializeParam();
