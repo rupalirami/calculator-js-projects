@@ -2,6 +2,7 @@
 
 // const operator = document.querySelectorAll(".opr");
 // const numArray = document.querySelectorAll(".num");
+// testing new change
 
 const numberZero = document.querySelector("#num-0");
 const numberOne = document.querySelector("#num-1");
